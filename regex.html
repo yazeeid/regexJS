@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+<body>
+    <script>
+        ////////////////// 1 /////////////////////////
+        // Modifiers => Flags
+        // i => case-insensitive 
+        // g => global 
+        // m => multilines
+
+        // Search Method
+        // match(Pattern)
+
+        // Match 
+        // Match a string against a Regular Expression Pattern
+        // Return an array with matches 
+        // Return null if no match is Found 
+
+        ////////////// 2 ///////////////////////
+        // Ranges 
+        // Part 1
+        // (X|Y) => X or Y 
+        // [0-9] => 0 To 9
+        // ^[0-9] => Any charachater Not 0 To 9
+        // Part 2
+        // [a-z]
+        // [^a-z]
+        // [A-Z]
+        // [^A-Z]
+        // [abc]
+        // [^abc]
+        // 
+        // Charater Classess 
+        // . => matches any charater, except newline or other line terminations 
+        // /w => matches word characters. [a-z, A-Z, 0-9, And Underscore] without spaces 
+        // /W => matches Non word characters [spacial charaters] with spaces 
+        // \d => matches digits from 0 to 9.
+        // \D => matches non-digits characters.
+        // \s => matches whitespaces character.
+        // \S => matches non whitespaces characters.
+        // \b => matches at the beginning or end of a word.
+        // \b => matches NOT at the beginning or end of a word.
+        // 
+        //
+        // Quantifiers 
+        // n+   => one or more 
+        // n*   => zero or more
+        // n?   => zero or one
+        //
+        //
+        //
+        //
+        //
+        //
+        ///////////// 1 /////////////////// 
+        let str1='hello World my name is yazeed hello';
+        let regex0=/hello/;
+        let regex00=/l/g; // return how many l in str 
+        let regex1=/Hello/ig;
+        let newRegex=new RegExp('Hello','ig'); // 2
+
+        console.log(str1.match(regex0));
+        console.log(str1.match(regex00));
+        console.log(str1.match(regex1));
+        console.log(str1.match(newRegex));
+        
+        ////////////// 2 ////////////////////
+        let str2="yazeed Lorans Ali abood Lorans yazeed yazeeD";
+        let regex2=/Yazeed|lorans|Ali/; // retrun on of them the first one 
+        let regex3=/Yazeed|Lorans|Ali/;
+        let regex4=/yazeed|lorans|Ali/;
+        let regex5=/yazeed|Lorans|Ali/g; // retrun all from or-ing selection even if duplicated
+        let regex6=/yazeed|Lorans|Ali/ig;
+        console.log(str2.match(regex2));
+        console.log(str2.match(regex3));
+        console.log(str2.match(regex4));
+        console.log(str2.match(regex5));
+        console.log(str2.match(regex6));
+
+        let str3="12345678910";
+        let regex7=/[0-9]/; 
+        let regex8=/[7-9]/;
+        let regex9=/[7-9]/g;
+        console.log(str3.match(regex7));
+        console.log(str3.match(regex8));
+        console.log(str3.match(regex9));
+
+        let str4="username yazeed password 123 username lornas password 789 ";
+        let regex10=/[0-9]/g;
+        let regex11=/[^0-9]/g;
+        //let regex111=/ [0-9] /g;
+        console.log(str4.match(regex10));
+        console.log(str4.match(regex11));
+        //console.log(str4.match(regex111));
+
+
+        let str5="bibo70";
+        let regex12=/[a-z]/g;
+        let regex13=/[^a-z]/g;
+        let regex14=/[c-z]/g;
+        console.log(str5.match(regex12));
+        console.log(str5.match(regex13));
+        console.log(str5.match(regex14));
+
+        let str6="bibo@$%#yazeed@$";
+        let regex15=/[^a-z]/g;
+        console.log(str6.match(regex15));
+
+        let str7='yazeed Lorans Ali abood Lorans yazeed yazeeD';
+        let regex16=/[edi]/g;
+        let regex166=/(edi)/g;
+        let regex17=/e|d||i/g;
+        console.log(str7.match(regex16));
+        console.log(str7.match(regex166));
+        console.log(str7.match(regex17));
+
+        let str8='os1 os10s os2 os3 os8os';
+        let regex18=/os[0-9]os/;
+        console.log(str8.match(regex18));
+
+        let str9='yazEeD7894##@@??564';
+        let regex19=/[^a-zA-Z]/g;
+        let regex20=/[a-zA-Z]/g;
+        let regex21=/[^a-zA-Z0-9]/g;
+        console.log(str9.match(regex19));
+        console.log(str9.match(regex20));
+        console.log(str9.match(regex21));
+
+        let str10='y@g...com o@g.com  Y@g.net O-g.com o@s.org 1@1.com ';
+        let regex22=/./g;
+        let regex23=/\w/g;
+        let regex24=/\W/g;
+        let regex25=/\d/g;
+        let regex26=/\D/g;
+        let regex27=/\s/g;
+        let regex28=/\S/g;
+        let regex29=/\w@/g;
+        let regex30=/\w@\w/g;
+        let regex31=/\w@\w.com/g;
+        let regex32=/\w@\w.(com|net|org)/g;
+
+        console.log(str10.match(regex22)); // all arr except newline 
+        console.log(str10.match(regex23)); // arr with a-z A-Z and 0-9 and underscore
+        console.log(str10.match(regex24)); // arr with special charaters 
+        console.log(str10.match(regex25)); // arr with digits only 
+        console.log(str10.match(regex26)); // arr without digits
+        console.log(str10.match(regex27)); // just spaces 
+        console.log(str10.match(regex28)); // arr without spaces 
+        console.log(str10.match(regex29));
+        console.log(str10.match(regex30));
+        console.log(str10.match(regex31));
+        console.log(str10.match(regex32));
+
+
+        let str11='Yazeed 1Spam 2Spam 3Spam Spam4 Spam5 Ahmed Ali Aspamo';
+        let regex33=/spam/gi;
+        let regex34=/\bspam/ig;
+        let regex35=/(\bspam|spam\b)/ig;
+        console.log(str11.match(regex33));
+        console.log(str11.match(regex34));
+        console.log(str11.match(regex35));
+        console.log(regex35.test(str11));
+        console.log(/(\bspam|spam\b)/ig.test("aspama"));
+        console.log(/(\bspam|spam\b)/ig.test("1spam"));
+        console.log(/(\bspam|spam\b)/ig.test("aspam"));
+
+
+        let str12="y@g...com o@g.com  Y@g.net O-g.com o@s.org 1@1.com yazeed@g.com";
+        let regex36=/\w+@g.com/g;
+        let regex37=/\w+@\w+.\w+/g;
+        console.log(str12.match(regex36));
+        console.log(str12.match(regex37));
+
+
+
+
+    </script>
+</body>
+</html>
